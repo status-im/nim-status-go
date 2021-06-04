@@ -168,3 +168,6 @@ proc startLocalNotifications*(): string =
 
 proc stopLocalNotifications*(): string =
   $go_shim.stopLocalNotifications()
+
+proc getNodeConfig*(): string =
+  $go_shim.getNodeConfig()

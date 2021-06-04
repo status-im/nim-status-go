@@ -108,3 +108,5 @@ proc stopWallet*(): cstring {.importc: "StopWallet".}
 proc startLocalNotifications*(): cstring {.importc: "StartLocalNotifications".}
 
 proc stopLocalNotifications*(): cstring {.importc: "StopLocalNotifications".}
+
+proc getNodeConfig*(): cstring {.importc: "GetNodeConfig".}
