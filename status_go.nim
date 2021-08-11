@@ -70,6 +70,9 @@ proc logout*(): string =
 proc verifyAccountPassword*(keyStoreDir: string, address: string, password: string): string =
   $go_shim.verifyAccountPassword(keyStoreDir.cstring, address.cstring, password.cstring)
 
+proc changeDatabasePassword*(keyUID: string, password: string, newPassword: string): string =
+  $go_shim.changeDatabasePassword(keyUID.cstring, password.cstring, newPassword.cstring)
+
 proc validateMnemonic*(mnemonic: string): string =
   $go_shim.validateMnemonic(mnemonic.cstring)
 

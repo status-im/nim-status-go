@@ -43,6 +43,8 @@ proc logout*(): cstring {.importc: "Logout".}
 
 proc verifyAccountPassword*(keyStoreDir: cstring, address: cstring, password: cstring): cstring {.importc: "VerifyAccountPassword".}
 
+proc changeDatabasePassword*(keyUID: cstring, password: cstring, newPassword: cstring): cstring {.importc: "ChangeDatabasePassword".}
+
 proc validateMnemonic*(mnemonic: cstring): cstring {.importc: "ValidateMnemonic".}
 
 proc saveAccountAndLoginWithKeycard*(accountData: cstring, password: cstring, settingsJSON: cstring, configJSON: cstring, subaccountData: cstring, keyHex: cstring): cstring {.importc: "SaveAccountAndLoginWithKeycard".}
