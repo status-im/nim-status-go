@@ -174,3 +174,9 @@ proc stopLocalNotifications*(): string =
 
 proc getNodeConfig*(): string =
   $go_shim.getNodeConfig()
+
+proc startDesktopNode*(configJSON: string): string =
+  $go_shim.startDesktopNode(configJSON.cstring)
+
+proc stopNode*(): string =
+  $go_shim.stopNode()
