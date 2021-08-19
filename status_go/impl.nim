@@ -112,3 +112,7 @@ proc startLocalNotifications*(): cstring {.importc: "StartLocalNotifications".}
 proc stopLocalNotifications*(): cstring {.importc: "StopLocalNotifications".}
 
 proc getNodeConfig*(): cstring {.importc: "GetNodeConfig".}
+
+proc startDesktopNode*(jsonConfig: cstring): cstring {.importc: "StartDesktopNode".}
+
+proc stopNode*(): cstring {.importc: "StopNode".}
