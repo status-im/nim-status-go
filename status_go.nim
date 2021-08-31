@@ -1,3 +1,4 @@
+
 # This module (see also `./status_go/impl.nim`) wraps the API supplied by
 # status-go when it is compiled into `libstatus.a|dll|dylib|so`.
 
@@ -11,166 +12,270 @@ import ./status_go/impl as go_shim
 export SignalCallback
 
 proc hashMessage*(message: string): string =
-  $go_shim.hashMessage(message.cstring)
+  var funcOut = go_shim.hashMessage(message.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc initKeystore*(keydir: string): string =
-  $go_shim.initKeystore(keydir.cstring)
+  var funcOut = go_shim.initKeystore(keydir.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc openAccounts*(datadir: string): string =
-  $go_shim.openAccounts(datadir.cstring)
+  var funcOut = go_shim.openAccounts(datadir.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountGenerateAndDeriveAddresses*(paramsJSON: string): string =
-  $go_shim.multiAccountGenerateAndDeriveAddresses(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountGenerateAndDeriveAddresses(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountStoreDerivedAccounts*(paramsJSON: string): string =
-  $go_shim.multiAccountStoreDerivedAccounts(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountStoreDerivedAccounts(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountImportMnemonic*(paramsJSON: string): string =
-  $go_shim.multiAccountImportMnemonic(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountImportMnemonic(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountImportPrivateKey*(paramsJSON: string): string =
-  $go_shim.multiAccountImportPrivateKey(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountImportPrivateKey(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountDeriveAddresses*(paramsJSON: string): string =
-  $go_shim.multiAccountDeriveAddresses(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountDeriveAddresses(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc saveAccountAndLogin*(accountData: string, password: string, settingsJSON: string, configJSON: string, subaccountData: string): string =
-  $go_shim.saveAccountAndLogin(accountData.cstring, password.cstring, settingsJSON.cstring, configJSON.cstring, subaccountData.cstring)
+  var funcOut = go_shim.saveAccountAndLogin(accountData.cstring, password.cstring, settingsJSON.cstring, configJSON.cstring, subaccountData.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc deleteMultiAccount*(keyUID: string, keyStoreDir: string): string =
-  $go_shim.deleteMultiAccount(keyUID.cstring, keyStoreDir.cstring)
+  var funcOut = go_shim.deleteMultiAccount(keyUID.cstring, keyStoreDir.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc callRPC*(inputJSON: string): string =
-  $go_shim.callRPC(inputJSON.cstring)
+  var funcOut = go_shim.callRPC(inputJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc callPrivateRPC*(inputJSON: string): string =
-  $go_shim.callPrivateRPC(inputJSON.cstring)
+  var funcOut = go_shim.callPrivateRPC(inputJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc addPeer*(peer: string): string =
-  $go_shim.addPeer(peer.cstring)
+  var funcOut = go_shim.addPeer(peer.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc setSignalEventCallback*(callback: SignalCallback) =
   go_shim.setSignalEventCallback(callback)
 
 proc sendTransaction*(jsonArgs: string, password: string): string =
-  $go_shim.sendTransaction(jsonArgs.cstring, password.cstring)
+  var funcOut = go_shim.sendTransaction(jsonArgs.cstring, password.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc generateAlias*(pk: string): string =
-  $go_shim.generateAlias(pk)
+  var funcOut = go_shim.generateAlias(pk)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc identicon*(pk: string): string =
-  $go_shim.identicon(pk)
+  var funcOut = go_shim.identicon(pk)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc login*(accountData: string, password: string): string =
-  $go_shim.login(accountData.cstring, password.cstring)
+  var funcOut = go_shim.login(accountData.cstring, password.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc logout*(): string =
-  $go_shim.logout()
+  var funcOut = go_shim.logout()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc verifyAccountPassword*(keyStoreDir: string, address: string, password: string): string =
-  $go_shim.verifyAccountPassword(keyStoreDir.cstring, address.cstring, password.cstring)
+  var funcOut = go_shim.verifyAccountPassword(keyStoreDir.cstring, address.cstring, password.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc changeDatabasePassword*(keyUID: string, password: string, newPassword: string): string =
-  $go_shim.changeDatabasePassword(keyUID.cstring, password.cstring, newPassword.cstring)
+  var funcOut = go_shim.changeDatabasePassword(keyUID.cstring, password.cstring, newPassword.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc validateMnemonic*(mnemonic: string): string =
-  $go_shim.validateMnemonic(mnemonic.cstring)
+  var funcOut = go_shim.validateMnemonic(mnemonic.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc saveAccountAndLoginWithKeycard*(accountData: string, password: string, settingsJSON: string, configJSON: string, subaccountData: string, keyHex: string): string =
-  $go_shim.saveAccountAndLoginWithKeycard(accountData.cstring, password.cstring, settingsJSON.cstring, configJSON.cstring, subaccountData.cstring, keyHex.cstring)
+  var funcOut = go_shim.saveAccountAndLoginWithKeycard(accountData.cstring, password.cstring, settingsJSON.cstring, configJSON.cstring, subaccountData.cstring, keyHex.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc hashTransaction*(txArgsJSON: string): string =
-  $go_shim.hashTransaction(txArgsJSON.cstring)
+  var funcOut = go_shim.hashTransaction(txArgsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc extractGroupMembershipSignatures*(signaturePairsStr: string): string =
-  $go_shim.extractGroupMembershipSignatures(signaturePairsStr.cstring)
+  var funcOut = go_shim.extractGroupMembershipSignatures(signaturePairsStr.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc connectionChange*(typ: string, expensive: string) =
   go_shim.connectionChange(typ.cstring, expensive.cstring)
 
 proc multiformatSerializePublicKey*(key: string, outBase: string): string =
-  $go_shim.multiformatSerializePublicKey(key.cstring, outBase.cstring)
+  var funcOut = go_shim.multiformatSerializePublicKey(key.cstring, outBase.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiformatDeserializePublicKey*(key: string, outBase: string): string =
-  $go_shim.multiformatDeserializePublicKey(key.cstring, outBase.cstring)
+  var funcOut = go_shim.multiformatDeserializePublicKey(key.cstring, outBase.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc validateNodeConfig*(configJSON: string): string =
-  $go_shim.validateNodeConfig(configJSON.cstring)
+  var funcOut = go_shim.validateNodeConfig(configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc loginWithKeycard*(accountData: string, password: string, keyHex: string): string =
-  $go_shim.loginWithKeycard(accountData.cstring, password.cstring, keyHex.cstring)
+  var funcOut = go_shim.loginWithKeycard(accountData.cstring, password.cstring, keyHex.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc recover*(rpcParams: string): string =
-  $go_shim.recover(rpcParams.cstring)
+  var funcOut = go_shim.recover(rpcParams.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc writeHeapProfile*(dataDir: string): string =
-  $go_shim.writeHeapProfile(dataDir.cstring)
+  var funcOut = go_shim.writeHeapProfile(dataDir.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc hashTypedData*(data: string): string =
-  $go_shim.hashTypedData(data.cstring)
+  var funcOut = go_shim.hashTypedData(data.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc resetChainData*(): string =
-  $go_shim.resetChainData()
+  var funcOut = go_shim.resetChainData()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc signMessage*(rpcParams: string): string =
-  $go_shim.signMessage(rpcParams.cstring)
+  var funcOut = go_shim.signMessage(rpcParams.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc signTypedData*(data: string, address: string, password: string): string =
-  $go_shim.signTypedData(data.cstring, address.cstring, password.cstring)
+  var funcOut = go_shim.signTypedData(data.cstring, address.cstring, password.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc stopCPUProfiling*(): string =
-  $go_shim.stopCPUProfiling()
+  var funcOut = go_shim.stopCPUProfiling()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc getNodesFromContract*(rpcEndpoint: string, contractAddress: string): string =
-  $go_shim.getNodesFromContract(rpcEndpoint.cstring, contractAddress.cstring)
+  var funcOut = go_shim.getNodesFromContract(rpcEndpoint.cstring, contractAddress.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc exportNodeLogs*(): string =
-  $go_shim.exportNodeLogs()
+  var funcOut = go_shim.exportNodeLogs()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc chaosModeUpdate*(on: int): string =
-  $go_shim.chaosModeUpdate(on.cint)
+  var funcOut = go_shim.chaosModeUpdate(on.cint)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc signHash*(hexEncodedHash: string): string =
-  $go_shim.signHash(hexEncodedHash.cstring)
+  var funcOut = go_shim.signHash(hexEncodedHash.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc sendTransactionWithSignature*(txtArgsJSON: string, sigString: string): string =
-  $go_shim.sendTransactionWithSignature(txtArgsJSON.cstring, sigString.cstring)
+  var funcOut = go_shim.sendTransactionWithSignature(txtArgsJSON.cstring, sigString.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc startCPUProfile*(dataDir: string): string =
-  $go_shim.startCPUProfile(dataDir.cstring)
+  var funcOut = go_shim.startCPUProfile(dataDir.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc appStateChange*(state: string) =
   go_shim.appStateChange(state.cstring)
 
 proc signGroupMembership*(content: string): string =
-  $go_shim.signGroupMembership(content.cstring)
+  var funcOut = go_shim.signGroupMembership(content.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountStoreAccount*(paramsJSON: string): string =
-  $go_shim.multiAccountStoreAccount(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountStoreAccount(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountLoadAccount*(paramsJSON: string): string =
-  $go_shim.multiAccountLoadAccount(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountLoadAccount(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountGenerate*(paramsJSON: string): string =
-  $go_shim.multiAccountGenerate(paramsJSON.cstring)
+  var funcOut = go_shim.multiAccountGenerate(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc multiAccountReset*(): string =
-  $go_shim.multiAccountReset()
+  var funcOut = go_shim.multiAccountReset()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc migrateKeyStoreDir*(accountData: string, password: string, oldKeystoreDir: string, multiaccountKeystoreDir: string): string =
-  $go_shim.migrateKeyStoreDir(accountData.cstring, password.cstring, oldKeystoreDir.cstring, multiaccountKeystoreDir.cstring)
+  var funcOut = go_shim.migrateKeyStoreDir(accountData.cstring, password.cstring, oldKeystoreDir.cstring, multiaccountKeystoreDir.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc startWallet*(watchNewBlocks: bool): string =
-  $go_shim.startWallet(watchNewBlocks)
+  var funcOut = go_shim.startWallet(watchNewBlocks)
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc stopWallet*(): string =
-  $go_shim.stopWallet()
+  var funcOut = go_shim.stopWallet()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc startLocalNotifications*(): string =
-  $go_shim.startLocalNotifications()
+  var funcOut = go_shim.startLocalNotifications()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc stopLocalNotifications*(): string =
-  $go_shim.stopLocalNotifications()
+  var funcOut = go_shim.stopLocalNotifications()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
 proc getNodeConfig*(): string =
-  $go_shim.getNodeConfig()
+  var funcOut = go_shim.getNodeConfig()
+  defer: go_shim.free(funcOut)
+  return $funcOut

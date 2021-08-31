@@ -112,3 +112,5 @@ proc startLocalNotifications*(): cstring {.importc: "StartLocalNotifications".}
 proc stopLocalNotifications*(): cstring {.importc: "StopLocalNotifications".}
 
 proc getNodeConfig*(): cstring {.importc: "GetNodeConfig".}
+
+proc free*(param: pointer) {.importc: "Free".}
