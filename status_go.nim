@@ -99,6 +99,11 @@ proc login*(accountData: string, password: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc loginWithConfig*(accountData: string, password: string, nodeCfg: string): string =
+  var funcOut = go_shim.loginWithConfig(accountData.cstring, password.cstring, nodeCfg.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc logout*(): string =
   var funcOut = go_shim.logout()
   defer: go_shim.free(funcOut)

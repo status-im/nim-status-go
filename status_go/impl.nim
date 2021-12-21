@@ -39,6 +39,8 @@ proc identicon*(pk: cstring): cstring {.importc: "Identicon".}
 
 proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login".}
 
+proc loginWithConfig*(accountData: cstring, password: cstring, configJSON: cstring): cstring {.importc: "LoginWithConfig".}
+
 proc logout*(): cstring {.importc: "Logout".}
 
 proc verifyAccountPassword*(keyStoreDir: cstring, address: cstring, password: cstring): cstring {.importc: "VerifyAccountPassword".}
