@@ -284,3 +284,8 @@ proc getNodeConfig*(): string =
   var funcOut = go_shim.getNodeConfig()
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc imageServerTLSCert*(): string =
+  var funcOut = go_shim.imageServerTLSCert()
+  defer: go_shim.free(funcOut)
+  return $funcOut

@@ -116,3 +116,5 @@ proc stopLocalNotifications*(): cstring {.importc: "StopLocalNotifications".}
 proc getNodeConfig*(): cstring {.importc: "GetNodeConfig".}
 
 proc free*(param: pointer) {.importc: "Free".}
+
+proc imageServerTLSCert*(): cstring {.importc: "ImageServerTLSCert".}
