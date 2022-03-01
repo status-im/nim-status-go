@@ -89,6 +89,11 @@ proc generateAlias*(pk: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc isAlias*(value: string): string =
+  var funcOut = go_shim.isAlias(value)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc identicon*(pk: string): string =
   var funcOut = go_shim.identicon(pk)
   defer: go_shim.free(funcOut)

@@ -35,6 +35,8 @@ proc sendTransaction*(jsonArgs: cstring, password: cstring): cstring {.importc: 
 
 proc generateAlias*(pk: cstring): cstring {.importc: "GenerateAlias".}
 
+proc isAlias*(value: cstring): cstring {.importc: "IsAlias".}
+
 proc identicon*(pk: cstring): cstring {.importc: "Identicon".}
 
 proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login".}
