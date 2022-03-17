@@ -314,3 +314,8 @@ proc getPasswordStrengthScore*(paramsJSON: string): string =
   var funcOut = go_shim.getPasswordStrengthScore(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc switchFleet*(newFleet: string, configJSON: string): string =
+  var funcOut = go_shim.switchFleet(newFleet.cstring, configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
