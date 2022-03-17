@@ -99,6 +99,16 @@ proc identicon*(pk: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc emojiHash*(pk: string): string =
+  var funcOut = go_shim.emojiHash(pk)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc colorHash*(pk: string): string =
+  var funcOut = go_shim.colorHash(pk)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc login*(accountData: string, password: string): string =
   var funcOut = go_shim.login(accountData.cstring, password.cstring)
   defer: go_shim.free(funcOut)
