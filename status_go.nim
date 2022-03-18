@@ -294,3 +294,8 @@ proc imageServerTLSCert*(): string =
   var funcOut = go_shim.imageServerTLSCert()
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc getPasswordStrength*(paramsJSON: string): string =
+  var funcOut = go_shim.getPasswordStrength(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
