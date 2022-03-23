@@ -126,3 +126,5 @@ proc free*(param: pointer) {.importc: "Free".}
 proc imageServerTLSCert*(): cstring {.importc: "ImageServerTLSCert".}
 
 proc getPasswordStrength*(paramsJSON: cstring): cstring {.importc: "GetPasswordStrength".}
+
+proc getPasswordStrengthScore*(paramsJSON: cstring): cstring {.importc: "GetPasswordStrengthScore".}

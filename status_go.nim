@@ -309,3 +309,8 @@ proc getPasswordStrength*(paramsJSON: string): string =
   var funcOut = go_shim.getPasswordStrength(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc getPasswordStrengthScore*(paramsJSON: string): string =
+  var funcOut = go_shim.getPasswordStrengthScore(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
