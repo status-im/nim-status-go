@@ -128,3 +128,5 @@ proc imageServerTLSCert*(): cstring {.importc: "ImageServerTLSCert".}
 proc getPasswordStrength*(paramsJSON: cstring): cstring {.importc: "GetPasswordStrength".}
 
 proc getPasswordStrengthScore*(paramsJSON: cstring): cstring {.importc: "GetPasswordStrengthScore".}
+
+proc switchFleet*(newFleet: cstring, configJSON: cstring): cstring{.importc: "SwitchFleet".}
