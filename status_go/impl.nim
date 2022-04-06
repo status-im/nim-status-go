@@ -132,3 +132,5 @@ proc getPasswordStrength*(paramsJSON: cstring): cstring {.importc: "GetPasswordS
 proc getPasswordStrengthScore*(paramsJSON: cstring): cstring {.importc: "GetPasswordStrengthScore".}
 
 proc switchFleet*(newFleet: cstring, configJSON: cstring): cstring{.importc: "SwitchFleet".}
+
+proc generateImages*(imagePath: cstring, aX: cint, aY: cint, bX: cint, bY: cint): cstring {.importc: "GenerateImages".}

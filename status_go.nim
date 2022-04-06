@@ -324,3 +324,8 @@ proc switchFleet*(newFleet: string, configJSON: string): string =
   var funcOut = go_shim.switchFleet(newFleet.cstring, configJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc generateImages*(imagePath: string, aX: int, aY: int, bX: int, bY: int): string =
+  var funcOut = go_shim.generateImages(imagePath.cstring, aX.cint, aY.cint, bX.cint, bY.cint)
+  defer: go_shim.free(funcOut)
+  return $funcOut
