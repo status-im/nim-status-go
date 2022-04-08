@@ -43,6 +43,8 @@ proc emojiHash*(pk: cstring): cstring {.importc: "EmojiHash".}
 
 proc colorHash*(pk: cstring): cstring {.importc: "ColorHash".}
 
+proc colorID*(pk: cstring): cstring {.importc: "ColorID".}
+
 proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login".}
 
 proc loginWithConfig*(accountData: cstring, password: cstring, configJSON: cstring): cstring {.importc: "LoginWithConfig".}

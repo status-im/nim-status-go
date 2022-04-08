@@ -109,6 +109,11 @@ proc colorHash*(pk: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc colorID*(pk: string): string =
+  var funcOut = go_shim.colorID(pk)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc login*(accountData: string, password: string): string =
   var funcOut = go_shim.login(accountData.cstring, password.cstring)
   defer: go_shim.free(funcOut)
