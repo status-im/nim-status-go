@@ -33,6 +33,8 @@ proc setSignalEventCallback*(callback: SignalCallback) {.importc: "SetSignalEven
 
 proc sendTransaction*(jsonArgs: cstring, password: cstring): cstring {.importc: "SendTransaction".}
 
+proc sendTransactionWithChainId*(chainId: cint, jsonArgs: cstring, password: cstring): cstring {.importc: "SendTransactionWithChainID".}
+
 proc generateAlias*(pk: cstring): cstring {.importc: "GenerateAlias".}
 
 proc isAlias*(value: cstring): cstring {.importc: "IsAlias".}
