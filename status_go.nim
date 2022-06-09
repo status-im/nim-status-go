@@ -84,6 +84,11 @@ proc sendTransaction*(jsonArgs: string, password: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc sendTransactionWithChainId*(chainId: int, jsonArgs: string, password: string): string =
+  var funcOut = go_shim.sendTransactionWithChainId(chainId.cint, jsonArgs.cstring, password.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc generateAlias*(pk: string): string =
   var funcOut = go_shim.generateAlias(pk)
   defer: go_shim.free(funcOut)
