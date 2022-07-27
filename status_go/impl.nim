@@ -75,6 +75,8 @@ proc validateNodeConfig*(configJSON: cstring): cstring {.importc: "ValidateNodeC
 
 proc loginWithKeycard*(accountData: cstring, password: cstring, keyHex: cstring): cstring {.importc: "LoginWithKeycard".}
 
+func convertToKeycardAccount*(keyStoreDir: cstring, accountData: cstring, settingsJSON: cstring, password: cstring, newPassword: cstring): cstring {.importc: "ConvertToKeycardAccount".}
+
 proc recover*(rpcParams: cstring): cstring {.importc: "Recover".}
 
 proc writeHeapProfile*(dataDir: cstring): cstring {.importc: "WriteHeapProfile".}
