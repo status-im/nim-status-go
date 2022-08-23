@@ -15,6 +15,8 @@ proc multiAccountStoreDerivedAccounts*(paramsJSON: cstring): cstring {.importc: 
 
 proc multiAccountImportMnemonic*(paramsJSON: cstring): cstring {.importc: "MultiAccountImportMnemonic".}
 
+proc createAccountFromMnemonic*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromMnemonic".}
+
 proc multiAccountImportPrivateKey*(paramsJSON: cstring): cstring {.importc: "MultiAccountImportPrivateKey".}
 
 proc multiAccountDeriveAddresses*(paramsJSON: cstring): cstring {.importc: "MultiAccountDeriveAddresses".}

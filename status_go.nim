@@ -41,6 +41,11 @@ proc multiAccountImportMnemonic*(paramsJSON: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc createAccountFromMnemonic*(paramsJSON: string): string =
+  var funcOut = go_shim.createAccountFromMnemonic(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc multiAccountImportPrivateKey*(paramsJSON: string): string =
   var funcOut = go_shim.multiAccountImportPrivateKey(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
