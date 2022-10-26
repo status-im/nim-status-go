@@ -73,6 +73,10 @@ proc multiformatSerializePublicKey*(key: cstring, outBase: cstring): cstring {.i
 
 proc multiformatDeserializePublicKey*(key: cstring, outBase: cstring): cstring {.importc: "MultiformatDeserializePublicKey".}
 
+proc decompressPublicKey*(key: cstring): cstring {.importc: "DecompressPublicKey".}
+
+proc compressPublicKey*(key: cstring): cstring {.importc: "CompressPublicKey".}
+
 proc validateNodeConfig*(configJSON: cstring): cstring {.importc: "ValidateNodeConfig".}
 
 proc loginWithKeycard*(accountData: cstring, password: cstring, keyHex: cstring): cstring {.importc: "LoginWithKeycard".}

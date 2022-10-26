@@ -182,6 +182,16 @@ proc multiformatDeserializePublicKey*(key: string, outBase: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc decompressPublicKey*(key: string): string =
+  var funcOut = go_shim.decompressPublicKey(key.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc compressPublicKey*(key: string): string =
+  var funcOut = go_shim.compressPublicKey(key.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc validateNodeConfig*(configJSON: string): string =
   var funcOut = go_shim.validateNodeConfig(configJSON.cstring)
   defer: go_shim.free(funcOut)
