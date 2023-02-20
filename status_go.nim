@@ -364,3 +364,23 @@ proc generateImages*(imagePath: string, aX: int, aY: int, bX: int, bY: int): str
   var funcOut = go_shim.generateImages(imagePath.cstring, aX.cint, aY.cint, bX.cint, bY.cint)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc getConnectionStringForBeingBootstrapped*(configJSON: string): string =
+  var funcOut = go_shim.getConnectionStringForBeingBootstrapped(configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut 
+
+proc getConnectionStringForBootstrappingAnotherDevice*(configJSON: string): string =
+  var funcOut = go_shim.getConnectionStringForBootstrappingAnotherDevice(configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut 
+
+proc inputConnectionStringForBootstrapping*(connectionString: string, configJSON: string): string =
+  var funcOut = go_shim.inputConnectionStringForBootstrapping(connectionString.cstring, configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut 
+
+proc validateConnectionString*(connectionString: string): string =
+  var funcOut = go_shim.validateConnectionString(connectionString.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut

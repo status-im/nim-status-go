@@ -148,3 +148,11 @@ proc getPasswordStrengthScore*(paramsJSON: cstring): cstring {.importc: "GetPass
 proc switchFleet*(newFleet: cstring, configJSON: cstring): cstring{.importc: "SwitchFleet".}
 
 proc generateImages*(imagePath: cstring, aX: cint, aY: cint, bX: cint, bY: cint): cstring {.importc: "GenerateImages".}
+
+proc getConnectionStringForBeingBootstrapped*(configJSON: cstring) : cstring {.importc: "GetConnectionStringForBeingBootstrapped".}
+
+proc getConnectionStringForBootstrappingAnotherDevice*(configJSON: cstring) : cstring {.importc: "GetConnectionStringForBootstrappingAnotherDevice".}
+
+proc inputConnectionStringForBootstrapping*(connectionString: cstring, configJSON: cstring) : cstring {.importc: "InputConnectionStringForBootstrapping".}
+
+proc validateConnectionString*(connectionString: cstring) : cstring {.importc: "ValidateConnectionString".}
