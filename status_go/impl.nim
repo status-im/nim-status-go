@@ -156,3 +156,5 @@ proc getConnectionStringForBootstrappingAnotherDevice*(configJSON: cstring) : cs
 proc inputConnectionStringForBootstrapping*(connectionString: cstring, configJSON: cstring) : cstring {.importc: "InputConnectionStringForBootstrapping".}
 
 proc validateConnectionString*(connectionString: cstring) : cstring {.importc: "ValidateConnectionString".}
+
+proc imageToBase64*(imageUri: cstring): cstring {.importc: "ImageToBase64".}

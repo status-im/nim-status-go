@@ -384,3 +384,8 @@ proc validateConnectionString*(connectionString: string): string =
   var funcOut = go_shim.validateConnectionString(connectionString.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc imageToBase64*(imageUri: string): string =
+  var funcOut = go_shim.imageToBase64(imageUri.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
