@@ -46,6 +46,11 @@ proc createAccountFromMnemonicAndDeriveAccountsForPaths*(paramsJSON: string): st
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc createAccountFromPrivateKey*(paramsJSON: string): string =
+  var funcOut = go_shim.createAccountFromPrivateKey(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc multiAccountImportPrivateKey*(paramsJSON: string): string =
   var funcOut = go_shim.multiAccountImportPrivateKey(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
