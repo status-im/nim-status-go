@@ -212,8 +212,8 @@ proc loginWithKeycard*(accountData: string, password: string, keyHex: string): s
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc convertToKeycardAccount*(accountData: string, settingsJSON: string, password: string, newPassword: string): string =
-  var funcOut = go_shim.convertToKeycardAccount(accountData.cstring, settingsJSON.cstring, password.cstring, newPassword.cstring)
+proc convertToKeycardAccount*(accountData: string, settingsJSON: string, keycardUid: string, password: string, newPassword: string): string =
+  var funcOut = go_shim.convertToKeycardAccount(accountData.cstring, settingsJSON.cstring, keycardUid.cstring, password.cstring, newPassword.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 

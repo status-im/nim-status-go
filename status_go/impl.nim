@@ -85,7 +85,7 @@ proc validateNodeConfig*(configJSON: cstring): cstring {.importc: "ValidateNodeC
 
 proc loginWithKeycard*(accountData: cstring, password: cstring, keyHex: cstring): cstring {.importc: "LoginWithKeycard".}
 
-func convertToKeycardAccount*(accountData: cstring, settingsJSON: cstring, password: cstring, newPassword: cstring): cstring {.importc: "ConvertToKeycardAccount".}
+func convertToKeycardAccount*(accountData: cstring, settingsJSON: cstring, keycardUid: cstring, password: cstring, newPassword: cstring): cstring {.importc: "ConvertToKeycardAccount".}
 
 func convertToRegularAccount*(mnemonic: cstring, currPassword: cstring, newPassword: cstring): cstring {.importc: "ConvertToRegularAccount".}
 
