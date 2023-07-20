@@ -207,8 +207,8 @@ proc validateNodeConfig*(configJSON: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc loginWithKeycard*(accountData: string, password: string, keyHex: string): string =
-  var funcOut = go_shim.loginWithKeycard(accountData.cstring, password.cstring, keyHex.cstring)
+proc loginWithKeycard*(accountData: string, password: string, keyHex: string, confNode: string): string =
+  var funcOut = go_shim.loginWithKeycard(accountData.cstring, password.cstring, keyHex.cstring, confNode.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
@@ -373,17 +373,17 @@ proc generateImages*(imagePath: string, aX: int, aY: int, bX: int, bY: int): str
 proc getConnectionStringForBeingBootstrapped*(configJSON: string): string =
   var funcOut = go_shim.getConnectionStringForBeingBootstrapped(configJSON.cstring)
   defer: go_shim.free(funcOut)
-  return $funcOut 
+  return $funcOut
 
 proc getConnectionStringForBootstrappingAnotherDevice*(configJSON: string): string =
   var funcOut = go_shim.getConnectionStringForBootstrappingAnotherDevice(configJSON.cstring)
   defer: go_shim.free(funcOut)
-  return $funcOut 
+  return $funcOut
 
 proc inputConnectionStringForBootstrapping*(connectionString: string, configJSON: string): string =
   var funcOut = go_shim.inputConnectionStringForBootstrapping(connectionString.cstring, configJSON.cstring)
   defer: go_shim.free(funcOut)
-  return $funcOut 
+  return $funcOut
 
 proc validateConnectionString*(connectionString: string): string =
   var funcOut = go_shim.validateConnectionString(connectionString.cstring)

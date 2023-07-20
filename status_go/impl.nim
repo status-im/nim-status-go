@@ -83,7 +83,7 @@ proc compressPublicKey*(key: cstring): cstring {.importc: "CompressPublicKey".}
 
 proc validateNodeConfig*(configJSON: cstring): cstring {.importc: "ValidateNodeConfig".}
 
-proc loginWithKeycard*(accountData: cstring, password: cstring, keyHex: cstring): cstring {.importc: "LoginWithKeycard".}
+proc loginWithKeycard*(accountData: cstring, password: cstring, keyHex: cstring, confNode: cstring): cstring {.importc: "LoginWithKeycard".}
 
 func convertToKeycardAccount*(accountData: cstring, settingsJSON: cstring, keycardUid: cstring, password: cstring, newPassword: cstring): cstring {.importc: "ConvertToKeycardAccount".}
 
