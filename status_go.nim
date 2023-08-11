@@ -389,3 +389,13 @@ proc validateConnectionString*(connectionString: string): string =
   var funcOut = go_shim.validateConnectionString(connectionString.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc getConnectionStringForExportingKeypairsKeystores*(configJSON: string): string =
+  var funcOut = go_shim.getConnectionStringForExportingKeypairsKeystores(configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc inputConnectionStringForImportingKeypairsKeystores*(connectionString: string, configJSON: string): string =
+  var funcOut = go_shim.inputConnectionStringForImportingKeypairsKeystores(connectionString.cstring, configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
