@@ -1,3 +1,6 @@
+# go functions do not raise nim exceptions and do not interact with the Nim gc
+{.push raises: [], gcsafe.}
+
 type SignalCallback* = proc(signal: cstring): void {.cdecl.}
 
 # All procs start with lowercase because the compiler will also need to import
