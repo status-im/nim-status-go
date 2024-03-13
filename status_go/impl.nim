@@ -55,6 +55,8 @@ proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login"
 
 proc loginWithConfig*(accountData: cstring, password: cstring, configJSON: cstring): cstring {.importc: "LoginWithConfig".}
 
+proc loginAccount*(requestJSON: cstring): cstring {.importc: "LoginAccount".}
+
 proc logout*(): cstring {.importc: "Logout".}
 
 proc verifyAccountPassword*(keyStoreDir: cstring, address: cstring, password: cstring): cstring {.importc: "VerifyAccountPassword".}
