@@ -25,8 +25,6 @@ proc multiAccountDeriveAddresses*(paramsJSON: cstring): cstring {.importc: "Mult
 
 proc saveAccountAndLogin*(accountData: cstring, password: cstring, settingsJSON: cstring, configJSON: cstring, subaccountData: cstring): cstring {.importc: "SaveAccountAndLogin".}
 
-proc createAccountAndLogin*(requestJSON: cstring): cstring {.importc: "CreateAccountAndLogin".}
-
 proc deleteMultiAccount*(keyUID: cstring, keyStoreDir: cstring): cstring {.importc: "DeleteMultiaccount".}
 
 proc callRPC*(inputJSON: cstring): cstring {.importc: "CallRPC".}
@@ -56,8 +54,6 @@ proc colorID*(pk: cstring): cstring {.importc: "ColorID".}
 proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login".}
 
 proc loginWithConfig*(accountData: cstring, password: cstring, configJSON: cstring): cstring {.importc: "LoginWithConfig".}
-
-proc loginAccount*(requestJSON: cstring): cstring {.importc: "LoginAccount".}
 
 proc logout*(): cstring {.importc: "Logout".}
 
@@ -166,3 +162,9 @@ proc validateConnectionString*(connectionString: cstring) : cstring {.importc: "
 proc getConnectionStringForExportingKeypairsKeystores*(configJSON: cstring) : cstring {.importc: "GetConnectionStringForExportingKeypairsKeystores".}
 
 proc inputConnectionStringForImportingKeypairsKeystores*(connectionString: cstring, configJSON: cstring) : cstring {.importc: "InputConnectionStringForImportingKeypairsKeystores".}
+
+proc loginAccount*(requestJSON: cstring): cstring {.importc: "LoginAccount".}
+
+proc createAccountAndLogin*(requestJSON: cstring): cstring {.importc: "CreateAccountAndLogin".}
+
+proc restoreAccountAndLogin*(requestJSON: cstring): cstring {.importc: "RestoreAccountAndLogin".}

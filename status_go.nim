@@ -66,11 +66,6 @@ proc saveAccountAndLogin*(accountData: string, password: string, settingsJSON: s
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc createAccountAndLogin*(requestJSON: string): string =
-  var funcOut = go_shim.createAccountAndLogin(requestJSON.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
 proc deleteMultiAccount*(keyUID: string, keyStoreDir: string): string =
   var funcOut = go_shim.deleteMultiAccount(keyUID.cstring, keyStoreDir.cstring)
   defer: go_shim.free(funcOut)
@@ -141,11 +136,6 @@ proc login*(accountData: string, password: string): string =
 
 proc loginWithConfig*(accountData: string, password: string, nodeCfg: string): string =
   var funcOut = go_shim.loginWithConfig(accountData.cstring, password.cstring, nodeCfg.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc loginAccount*(requestJson: string): string =
-  var funcOut = go_shim.loginAccount(requestJson.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
@@ -407,5 +397,20 @@ proc getConnectionStringForExportingKeypairsKeystores*(configJSON: string): stri
 
 proc inputConnectionStringForImportingKeypairsKeystores*(connectionString: string, configJSON: string): string =
   var funcOut = go_shim.inputConnectionStringForImportingKeypairsKeystores(connectionString.cstring, configJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc loginAccount*(requestJson: string): string =
+  var funcOut = go_shim.loginAccount(requestJson.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc createAccountAndLogin*(requestJSON: string): string =
+  var funcOut = go_shim.createAccountAndLogin(requestJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc restoreAccountAndLogin*(requestJSON: string): string =
+  var funcOut = go_shim.restoreAccountAndLogin(requestJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
