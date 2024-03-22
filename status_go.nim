@@ -31,11 +31,6 @@ proc multiAccountGenerateAndDeriveAddresses*(paramsJSON: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc multiAccountStoreDerivedAccounts*(paramsJSON: string): string =
-  var funcOut = go_shim.multiAccountStoreDerivedAccounts(paramsJSON.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
 proc multiAccountImportMnemonic*(paramsJSON: string): string =
   var funcOut = go_shim.multiAccountImportMnemonic(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
@@ -58,11 +53,6 @@ proc multiAccountImportPrivateKey*(paramsJSON: string): string =
 
 proc multiAccountDeriveAddresses*(paramsJSON: string): string =
   var funcOut = go_shim.multiAccountDeriveAddresses(paramsJSON.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc saveAccountAndLogin*(accountData: string, password: string, settingsJSON: string, configJSON: string, subaccountData: string): string =
-  var funcOut = go_shim.saveAccountAndLogin(accountData.cstring, password.cstring, settingsJSON.cstring, configJSON.cstring, subaccountData.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
@@ -131,11 +121,6 @@ proc colorID*(pk: string): string =
 
 proc login*(accountData: string, password: string): string =
   var funcOut = go_shim.login(accountData.cstring, password.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc loginWithConfig*(accountData: string, password: string, nodeCfg: string): string =
-  var funcOut = go_shim.loginWithConfig(accountData.cstring, password.cstring, nodeCfg.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
