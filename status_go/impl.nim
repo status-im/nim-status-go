@@ -14,8 +14,6 @@ proc openAccounts*(datadir: cstring): cstring {.importc: "OpenAccounts".}
 
 proc multiAccountGenerateAndDeriveAddresses*(paramsJSON: cstring): cstring {.importc: "MultiAccountGenerateAndDeriveAddresses".}
 
-proc multiAccountStoreDerivedAccounts*(paramsJSON: cstring): cstring {.importc: "MultiAccountStoreDerivedAccounts".}
-
 proc multiAccountImportMnemonic*(paramsJSON: cstring): cstring {.importc: "MultiAccountImportMnemonic".}
 
 proc createAccountFromMnemonicAndDeriveAccountsForPaths*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromMnemonicAndDeriveAccountsForPaths".}
@@ -25,8 +23,6 @@ proc createAccountFromPrivateKey*(paramsJSON: cstring): cstring {.importc: "Crea
 proc multiAccountImportPrivateKey*(paramsJSON: cstring): cstring {.importc: "MultiAccountImportPrivateKey".}
 
 proc multiAccountDeriveAddresses*(paramsJSON: cstring): cstring {.importc: "MultiAccountDeriveAddresses".}
-
-proc saveAccountAndLogin*(accountData: cstring, password: cstring, settingsJSON: cstring, configJSON: cstring, subaccountData: cstring): cstring {.importc: "SaveAccountAndLogin".}
 
 proc deleteMultiAccount*(keyUID: cstring, keyStoreDir: cstring): cstring {.importc: "DeleteMultiaccount".}
 
@@ -55,8 +51,6 @@ proc colorHash*(pk: cstring): cstring {.importc: "ColorHash".}
 proc colorID*(pk: cstring): cstring {.importc: "ColorID".}
 
 proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login".}
-
-proc loginWithConfig*(accountData: cstring, password: cstring, configJSON: cstring): cstring {.importc: "LoginWithConfig".}
 
 proc logout*(): cstring {.importc: "Logout".}
 
@@ -165,3 +159,9 @@ proc validateConnectionString*(connectionString: cstring) : cstring {.importc: "
 proc getConnectionStringForExportingKeypairsKeystores*(configJSON: cstring) : cstring {.importc: "GetConnectionStringForExportingKeypairsKeystores".}
 
 proc inputConnectionStringForImportingKeypairsKeystores*(connectionString: cstring, configJSON: cstring) : cstring {.importc: "InputConnectionStringForImportingKeypairsKeystores".}
+
+proc loginAccount*(requestJSON: cstring): cstring {.importc: "LoginAccount".}
+
+proc createAccountAndLogin*(requestJSON: cstring): cstring {.importc: "CreateAccountAndLogin".}
+
+proc restoreAccountAndLogin*(requestJSON: cstring): cstring {.importc: "RestoreAccountAndLogin".}
