@@ -26,16 +26,6 @@ proc openAccounts*(datadir: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc multiAccountGenerateAndDeriveAddresses*(paramsJSON: string): string =
-  var funcOut = go_shim.multiAccountGenerateAndDeriveAddresses(paramsJSON.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc multiAccountImportMnemonic*(paramsJSON: string): string =
-  var funcOut = go_shim.multiAccountImportMnemonic(paramsJSON.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
 proc createAccountFromMnemonicAndDeriveAccountsForPaths*(paramsJSON: string): string =
   var funcOut = go_shim.createAccountFromMnemonicAndDeriveAccountsForPaths(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
@@ -149,11 +139,6 @@ proc validateMnemonic*(mnemonic: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc saveAccountAndLoginWithKeycard*(accountData: string, password: string, settingsJSON: string, configJSON: string, subaccountData: string, keyHex: string): string =
-  var funcOut = go_shim.saveAccountAndLoginWithKeycard(accountData.cstring, password.cstring, settingsJSON.cstring, configJSON.cstring, subaccountData.cstring, keyHex.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
 proc hashTransaction*(txArgsJSON: string): string =
   var funcOut = go_shim.hashTransaction(txArgsJSON.cstring)
   defer: go_shim.free(funcOut)
@@ -189,11 +174,6 @@ proc compressPublicKey*(key: string): string =
 
 proc validateNodeConfig*(configJSON: string): string =
   var funcOut = go_shim.validateNodeConfig(configJSON.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc loginWithKeycard*(accountData: string, password: string, keyHex: string, confNode: string): string =
-  var funcOut = go_shim.loginWithKeycard(accountData.cstring, password.cstring, keyHex.cstring, confNode.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
