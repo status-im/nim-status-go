@@ -12,10 +12,6 @@ proc initKeystore*(keydir: cstring): cstring {.importc: "InitKeystore".}
 
 proc openAccounts*(datadir: cstring): cstring {.importc: "OpenAccounts".}
 
-proc multiAccountGenerateAndDeriveAddresses*(paramsJSON: cstring): cstring {.importc: "MultiAccountGenerateAndDeriveAddresses".}
-
-proc multiAccountImportMnemonic*(paramsJSON: cstring): cstring {.importc: "MultiAccountImportMnemonic".}
-
 proc createAccountFromMnemonicAndDeriveAccountsForPaths*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromMnemonicAndDeriveAccountsForPaths".}
 
 proc createAccountFromPrivateKey*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromPrivateKey".}
@@ -61,8 +57,6 @@ proc verifyDatabasePassword*(keyUID: cstring, password: cstring): cstring {.impo
 proc changeDatabasePassword*(keyUID: cstring, password: cstring, newPassword: cstring): cstring {.importc: "ChangeDatabasePassword".}
 
 proc validateMnemonic*(mnemonic: cstring): cstring {.importc: "ValidateMnemonic".}
-
-proc saveAccountAndLoginWithKeycard*(accountData: cstring, password: cstring, settingsJSON: cstring, configJSON: cstring, subaccountData: cstring, keyHex: cstring): cstring {.importc: "SaveAccountAndLoginWithKeycard".}
 
 proc hashTransaction*(txArgsJSON: cstring): cstring {.importc: "HashTransaction".}
 
