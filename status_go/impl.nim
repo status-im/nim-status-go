@@ -10,7 +10,13 @@ proc hashMessage*(message: cstring): cstring {.importc: "HashMessage".}
 
 proc initKeystore*(keydir: cstring): cstring {.importc: "InitKeystore".}
 
-proc openAccounts*(datadir: cstring): cstring {.importc: "OpenAccounts".}
+proc initializeApplication*(paramsJSON: cstring): cstring {.importc: "InitializeApplication".}
+
+proc toggleCentralizedMetrics*(paramsJSON: cstring): cstring {.importc: "ToggleCentralizedMetrics".}
+
+proc addCentralizedMetric*(paramsJSON: cstring): cstring {.importc: "AddCentralizedMetric".}
+
+proc centralizedMetricsInfo*(): cstring {.importc: "CentralizedMetricsInfo".}
 
 proc createAccountFromMnemonicAndDeriveAccountsForPaths*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromMnemonicAndDeriveAccountsForPaths".}
 

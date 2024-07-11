@@ -21,8 +21,23 @@ proc initKeystore*(keydir: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc openAccounts*(datadir: string): string =
-  var funcOut = go_shim.openAccounts(datadir.cstring)
+proc initializeApplication*(paramsJSON: string): string =
+  var funcOut = go_shim.initializeApplication(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc toggleCentralizedMetrics*(paramsJSON: string): string =
+  var funcOut = go_shim.toggleCentralizedMetrics(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc addCentralizedMetric*(paramsJSON: string): string =
+  var funcOut = go_shim.addCentralizedMetric(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc centralizedMetricsInfo*(): string =
+  var funcOut = go_shim.centralizedMetricsInfo()
   defer: go_shim.free(funcOut)
   return $funcOut
 
