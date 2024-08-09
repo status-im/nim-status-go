@@ -92,6 +92,8 @@ proc writeHeapProfile*(dataDir: cstring): cstring {.importc: "WriteHeapProfile".
 
 proc hashTypedData*(data: cstring): cstring {.importc: "HashTypedData".}
 
+proc hashTypedDataV4*(data: cstring): cstring {.importc: "HashTypedDataV4".}
+
 proc resetChainData*(): cstring {.importc: "ResetChainData".}
 
 proc signMessage*(rpcParams: cstring): cstring {.importc: "SignMessage".}

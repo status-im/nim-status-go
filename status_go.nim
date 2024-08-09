@@ -217,6 +217,11 @@ proc hashTypedData*(data: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc hashTypedDataV4*(data: string): string =
+  var funcOut = go_shim.hashTypedDataV4(data.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc resetChainData*(): string =
   var funcOut = go_shim.resetChainData()
   defer: go_shim.free(funcOut)
