@@ -399,3 +399,8 @@ proc restoreAccountAndLogin*(requestJSON: string): string =
   var funcOut = go_shim.restoreAccountAndLogin(requestJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc intendedPanic*(message: string): string =
+  var funcOut = go_shim.intendedPanic(message.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut

@@ -167,3 +167,5 @@ proc loginAccount*(requestJSON: cstring): cstring {.importc: "LoginAccount".}
 proc createAccountAndLogin*(requestJSON: cstring): cstring {.importc: "CreateAccountAndLogin".}
 
 proc restoreAccountAndLogin*(requestJSON: cstring): cstring {.importc: "RestoreAccountAndLogin".}
+
+proc intendedPanic*(message: cstring): cstring {.importc: "IntendedPanic".}
