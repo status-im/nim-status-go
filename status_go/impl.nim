@@ -6,6 +6,8 @@ type SignalCallback* = proc(signal: cstring): void {.cdecl.}
 # All procs start with lowercase because the compiler will also need to import
 # status-go, and it will complain of duplication of function names
 
+proc initializeStatusGo*(): void {.importc: "InitializeStatusGo".}
+
 proc hashMessage*(message: cstring): cstring {.importc: "HashMessage".}
 
 proc initKeystore*(keydir: cstring): cstring {.importc: "InitKeystore".}

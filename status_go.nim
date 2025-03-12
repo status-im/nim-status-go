@@ -11,6 +11,9 @@ import ./status_go/impl as go_shim
 
 export SignalCallback
 
+proc initializeStatusGo*() =
+  go_shim.initializeStatusGo()
+
 proc hashMessage*(message: string): string =
   var funcOut = go_shim.hashMessage(message.cstring)
   defer: go_shim.free(funcOut)
