@@ -399,3 +399,13 @@ proc restoreAccountAndLogin*(requestJSON: string): string =
   var funcOut = go_shim.restoreAccountAndLogin(requestJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc performLocalBackup*(): string =
+  var funcOut = go_shim.performLocalBackup()
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc loadLocalBackup*(filePath: string): string =
+  var funcOut = go_shim.loadLocalBackup(filePath)
+  defer: go_shim.free(funcOut)
+  return $funcOut
