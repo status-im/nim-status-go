@@ -16,11 +16,6 @@ proc hashMessage*(message: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc initKeystore*(keydir: string): string =
-  var funcOut = go_shim.initKeystore(keydir.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
 proc initializeApplication*(paramsJSON: string): string =
   var funcOut = go_shim.initializeApplication(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
@@ -134,8 +129,8 @@ proc logout*(): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc verifyAccountPassword*(keyStoreDir: string, address: string, password: string): string =
-  var funcOut = go_shim.verifyAccountPassword(keyStoreDir.cstring, address.cstring, password.cstring)
+proc verifyAccountPassword*(address: string, password: string): string =
+  var funcOut = go_shim.verifyAccountPassword(address.cstring, password.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
