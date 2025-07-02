@@ -8,8 +8,6 @@ type SignalCallback* = proc(signal: cstring): void {.cdecl.}
 
 proc hashMessage*(message: cstring): cstring {.importc: "HashMessage".}
 
-proc initKeystore*(keydir: cstring): cstring {.importc: "InitKeystore".}
-
 proc initializeApplication*(paramsJSON: cstring): cstring {.importc: "InitializeApplication".}
 
 proc toggleCentralizedMetrics*(paramsJSON: cstring): cstring {.importc: "ToggleCentralizedMetrics".}
@@ -56,7 +54,7 @@ proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login"
 
 proc logout*(): cstring {.importc: "Logout".}
 
-proc verifyAccountPassword*(keyStoreDir: cstring, address: cstring, password: cstring): cstring {.importc: "VerifyAccountPassword".}
+proc verifyAccountPassword*(address: cstring, password: cstring): cstring {.importc: "VerifyAccountPassword".}
 
 proc verifyDatabasePassword*(keyUID: cstring, password: cstring): cstring {.importc: "VerifyDatabasePassword".}
 
