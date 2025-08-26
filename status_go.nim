@@ -129,16 +129,6 @@ proc logout*(): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc verifyAccountPassword*(address: string, password: string): string =
-  var funcOut = go_shim.verifyAccountPassword(address.cstring, password.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc verifyDatabasePassword*(keyUID: string, password: string): string =
-  var funcOut = go_shim.verifyDatabasePassword(keyUID.cstring, password.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
 proc changeDatabasePassword*(keyUID: string, password: string, newPassword: string): string =
   var funcOut = go_shim.changeDatabasePassword(keyUID.cstring, password.cstring, newPassword.cstring)
   defer: go_shim.free(funcOut)
