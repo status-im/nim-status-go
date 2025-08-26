@@ -129,8 +129,8 @@ proc logout*(): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc changeDatabasePassword*(keyUID: string, password: string, newPassword: string): string =
-  var funcOut = go_shim.changeDatabasePassword(keyUID.cstring, password.cstring, newPassword.cstring)
+proc changeDatabasePasswordV2*(paramsJSON: string): string =
+  var funcOut = go_shim.changeDatabasePasswordV2(paramsJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 

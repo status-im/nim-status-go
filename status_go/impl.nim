@@ -54,7 +54,7 @@ proc login*(accountData: cstring, password: cstring): cstring {.importc: "Login"
 
 proc logout*(): cstring {.importc: "Logout".}
 
-proc changeDatabasePassword*(keyUID: cstring, password: cstring, newPassword: cstring): cstring {.importc: "ChangeDatabasePassword".}
+proc changeDatabasePasswordV2*(paramsJSON: cstring): cstring {.importc: "ChangeDatabasePasswordV2".}
 
 proc validateMnemonic*(mnemonic: cstring): cstring {.importc: "ValidateMnemonic".}
 
