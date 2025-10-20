@@ -222,11 +222,6 @@ proc signTypedData*(data: string, address: string, password: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc stopCPUProfiling*(): string =
-  var funcOut = go_shim.stopCPUProfiling()
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
 proc getNodesFromContract*(rpcEndpoint: string, contractAddress: string): string =
   var funcOut = go_shim.getNodesFromContract(rpcEndpoint.cstring, contractAddress.cstring)
   defer: go_shim.free(funcOut)
@@ -249,11 +244,6 @@ proc signHash*(hexEncodedHash: string): string =
 
 proc sendTransactionWithSignature*(txtArgsJSON: string, sigString: string): string =
   var funcOut = go_shim.sendTransactionWithSignature(txtArgsJSON.cstring, sigString.cstring)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc startCPUProfile*(dataDir: string): string =
-  var funcOut = go_shim.startCPUProfile(dataDir.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 

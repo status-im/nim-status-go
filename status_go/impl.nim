@@ -94,8 +94,6 @@ proc signMessage*(rpcParams: cstring): cstring {.importc: "SignMessage".}
 
 proc signTypedData*(data: cstring, address: cstring, password: cstring): cstring {.importc: "SignTypedData".}
 
-proc stopCPUProfiling*(): cstring {.importc: "StopCPUProfiling".}
-
 proc getNodesFromContract*(rpcEndpoint: cstring, contractAddress: cstring): cstring {.importc: "GetNodesFromContract".}
 
 proc exportNodeLogs*(): cstring {.importc: "ExportNodeLogs".}
@@ -105,8 +103,6 @@ proc chaosModeUpdate*(on: cint): cstring {.importc: "ChaosModeUpdate".}
 proc signHash*(hexEncodedHash: cstring): cstring {.importc: "SignHash".}
 
 proc sendTransactionWithSignature*(txtArgsJSON: cstring, sigString: cstring): cstring {.importc: "SendTransactionWithSignature".}
-
-proc startCPUProfile*(dataDir: cstring): cstring {.importc: "StartCPUProfile".}
 
 proc appStateChange*(state: cstring) {.importc: "AppStateChange".}
 
