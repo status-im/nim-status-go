@@ -341,6 +341,7 @@ proc getConnectionStringForBootstrappingAnotherDevice*(configJSON: string): stri
   return $funcOut
 
 proc inputConnectionStringForBootstrapping*(connectionString: string, configJSON: string): string =
+  echo "<<< calling inputConnectionStringForBootstrapping", connectionString, configJSON
   var funcOut = go_shim.inputConnectionStringForBootstrapping(connectionString.cstring, configJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
@@ -366,6 +367,7 @@ proc loginAccount*(requestJson: string): string =
   return $funcOut
 
 proc createAccountAndLogin*(requestJSON: string): string =
+  echo "<<< calling createAccountAndLogin", requestJSON
   var funcOut = go_shim.createAccountAndLogin(requestJSON.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
