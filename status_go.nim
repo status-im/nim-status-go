@@ -375,6 +375,11 @@ proc restoreAccountAndLogin*(requestJSON: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc deleteMultiaccount*(requestJSON: string): string =
+  var funcOut = go_shim.deleteMultiaccount(requestJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc performLocalBackup*(): string =
   var funcOut = go_shim.performLocalBackup()
   defer: go_shim.free(funcOut)
