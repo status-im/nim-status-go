@@ -158,6 +158,8 @@ proc createAccountAndLogin*(requestJSON: cstring): cstring {.importc: "CreateAcc
 
 proc restoreAccountAndLogin*(requestJSON: cstring): cstring {.importc: "RestoreAccountAndLogin".}
 
+proc deleteMultiaccount*(requestJSON: cstring): cstring {.importc: "DeleteMultiaccount".}
+
 proc performLocalBackup*(): cstring {.importc: "PerformLocalBackup".}
 
 proc loadLocalBackup*(filePath: cstring): cstring {.importc: "LoadLocalBackup".}
