@@ -389,3 +389,13 @@ proc loadLocalBackup*(filePath: string): string =
   var funcOut = go_shim.loadLocalBackup(filePath)
   defer: go_shim.free(funcOut)
   return $funcOut
+
+proc getActiveAccount*(): string =
+  var funcOut = go_shim.getActiveAccount()
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
+proc keyUID*(): string =
+  var funcOut = go_shim.keyUID()
+  defer: go_shim.free(funcOut)
+  return $funcOut
