@@ -163,3 +163,7 @@ proc deleteMultiaccount*(requestJSON: cstring): cstring {.importc: "DeleteMultia
 proc performLocalBackup*(): cstring {.importc: "PerformLocalBackup".}
 
 proc loadLocalBackup*(filePath: cstring): cstring {.importc: "LoadLocalBackup".}
+
+proc getActiveAccount*(): cstring {.importc: "GetActiveAccount".}
+
+proc keyUID*(): cstring {.importc: "KeyUID".}
