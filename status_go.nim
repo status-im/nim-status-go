@@ -390,6 +390,11 @@ proc loadLocalBackup*(filePath: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc connectionChange*(requestJSON: string): string =
+  var funcOut = go_shim.connectionChange(requestJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc getActiveAccount*(): string =
   var funcOut = go_shim.getActiveAccount()
   defer: go_shim.free(funcOut)

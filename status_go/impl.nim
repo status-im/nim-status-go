@@ -164,6 +164,8 @@ proc performLocalBackup*(): cstring {.importc: "PerformLocalBackup".}
 
 proc loadLocalBackup*(filePath: cstring): cstring {.importc: "LoadLocalBackup".}
 
+proc connectionChange*(requestJSON: cstring): cstring {.importc: "ConnectionChange".}
+
 proc getActiveAccount*(): cstring {.importc: "GetActiveAccount".}
 
 proc keyUID*(): cstring {.importc: "KeyUID".}
