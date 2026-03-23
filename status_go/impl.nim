@@ -18,6 +18,10 @@ proc centralizedMetricsInfo*(): cstring {.importc: "CentralizedMetricsInfo".}
 
 proc createAccountFromMnemonicAndDeriveAccountsForPaths*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromMnemonicAndDeriveAccountsForPaths".}
 
+proc deriveAccountsPublicInfoFromExtendedPublicKeyForPaths*(paramsJSON: cstring): cstring {.importc: "DeriveAccountsPublicInfoFromExtendedPublicKeyForPaths".}
+
+proc convertURCryptoHDKeyToXPub*(ur: cstring): cstring {.importc: "ConvertURCryptoHDKeyToXPub".}
+
 proc createAccountFromPrivateKey*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromPrivateKey".}
 
 proc multiAccountImportPrivateKey*(paramsJSON: cstring): cstring {.importc: "MultiAccountImportPrivateKey".}
