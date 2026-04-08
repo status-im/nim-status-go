@@ -46,6 +46,11 @@ proc deriveAccountsPublicInfoFromExtendedPublicKeyForPaths*(paramsJSON: string):
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc deriveExtendedPublicKeyAtPath*(paramsJSON: string): string =
+  var funcOut = go_shim.deriveExtendedPublicKeyAtPath(paramsJSON.cstring)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc convertURCryptoHDKeyToXPub*(ur: string): string =
   var funcOut = go_shim.convertURCryptoHDKeyToXPub(ur.cstring)
   defer: go_shim.free(funcOut)
