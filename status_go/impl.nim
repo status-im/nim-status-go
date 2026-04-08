@@ -20,6 +20,8 @@ proc createAccountFromMnemonicAndDeriveAccountsForPaths*(paramsJSON: cstring): c
 
 proc deriveAccountsPublicInfoFromExtendedPublicKeyForPaths*(paramsJSON: cstring): cstring {.importc: "DeriveAccountsPublicInfoFromExtendedPublicKeyForPaths".}
 
+proc deriveExtendedPublicKeyAtPath*(paramsJSON: cstring): cstring {.importc: "DeriveExtendedPublicKeyAtPath".}
+
 proc convertURCryptoHDKeyToXPub*(ur: cstring): cstring {.importc: "ConvertURCryptoHDKeyToXPub".}
 
 proc createAccountFromPrivateKey*(paramsJSON: cstring): cstring {.importc: "CreateAccountFromPrivateKey".}
