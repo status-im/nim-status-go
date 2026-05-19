@@ -64,6 +64,8 @@ proc changeDatabasePasswordV2*(paramsJSON: cstring): cstring {.importc: "ChangeD
 
 proc validateMnemonic*(mnemonic: cstring): cstring {.importc: "ValidateMnemonic".}
 
+proc getRandomMnemonic*(): cstring {.importc: "GetRandomMnemonic".}
+
 proc hashTransaction*(txArgsJSON: cstring): cstring {.importc: "HashTransaction".}
 
 proc extractGroupMembershipSignatures*(signaturePairsStr: cstring): cstring {.importc: "ExtractGroupMembershipSignatures".}

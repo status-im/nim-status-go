@@ -154,6 +154,11 @@ proc validateMnemonic*(mnemonic: string): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc getRandomMnemonic*(): string =
+  var funcOut = go_shim.getRandomMnemonic()
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc hashTransaction*(txArgsJSON: string): string =
   var funcOut = go_shim.hashTransaction(txArgsJSON.cstring)
   defer: go_shim.free(funcOut)
